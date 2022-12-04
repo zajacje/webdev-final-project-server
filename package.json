@@ -1,10 +1,12 @@
 {
   "name": "webdev-final-project-server",
+  "type": "module",
   "version": "1.0.0",
   "description": "Node.js HTTP web server for recipe application",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.s"
   },
   "repository": {
     "type": "git",
@@ -21,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/zajacje/webdev-final-project-server/issues"
   },
-  "homepage": "https://github.com/zajacje/webdev-final-project-server#readme"
+  "homepage": "https://github.com/zajacje/webdev-final-project-server#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
