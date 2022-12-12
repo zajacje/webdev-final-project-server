@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.s"
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,10 @@
   },
   "homepage": "https://github.com/zajacje/webdev-final-project-server#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "mongoose": "^6.8.0",
+    "prettier": "^2.8.1"
   }
 }
