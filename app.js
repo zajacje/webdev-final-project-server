@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import session from 'express-session';
 import SessionController from './session-controller.js';
 import UsersController from './users/users-controller.js';
+import LikesController from './likes/likes-controller.js';
 
 const CONNECTION_STRING = process.env.DB_CONNECTION_STRING
  || 'mongodb://localhost:27017/wecook'
@@ -24,4 +25,5 @@ app.use(express.json());
 app.get('/', (req, res) => {res.send('Welcome to the meal plan server!')});
 SessionController(app);
 UsersController(app);
+LikesController(app);
 app.listen(4000);
