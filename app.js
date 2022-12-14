@@ -5,6 +5,8 @@ import session from 'express-session';
 import SessionController from './session-controller.js';
 import UsersController from './users/users-controller.js';
 import LikesController from './likes/likes-controller.js';
+import PlansController from './plans/plans-controller.js';
+import MembershipsController from './memberships/memberships-controller.js';
 
 const CONNECTION_STRING = process.env.DB_CONNECTION_STRING
  || 'mongodb://localhost:27017/wecook'
@@ -26,4 +28,6 @@ app.get('/', (req, res) => {res.send('Welcome to the meal plan server!')});
 SessionController(app);
 UsersController(app);
 LikesController(app);
+PlansController(app);
+MembershipsController(app);
 app.listen(4000);
