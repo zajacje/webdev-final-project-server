@@ -10,10 +10,9 @@ const CONNECTION_STRING = process.env.DB_CONNECTION_STRING
 mongoose.connect(CONNECTION_STRING);
 
 const app = express();
-app.use(cors());
 app.use(cors({
     credentials: true,
-    origin: 'http://localhost:3000' // TODO: change this to frontend env
+    origin: process.env.WECOOK_FRONTEND_URL || 'http://localhost:3000'
 }))
 app.use(session({
     secret: process.env.SESSION_SECRET,
