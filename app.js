@@ -2,7 +2,6 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import session from "express-session";
-import SessionController from "./session-controller.js";
 import UsersController from "./users/users-controller.js";
 import LikesController from "./likes/likes-controller.js";
 import PlansController from "./plans/plans-controller.js";
