@@ -4,9 +4,9 @@ const LikesController = (app) => {
   const userLikesRecipe = async (req, res) => {
     const uid = req.session["currentUser"]._id;
     const { rid } = req.params;
-    const { name } = req.body;
+    const { recipeName } = req.body;
 
-    const newLike = await likesDao.userLikesRecipe(uid, rid, name);
+    const newLike = await likesDao.userLikesRecipe(uid, rid, recipeName);
     res.json(newLike);
   };
   const userUnlikesRecipe = async (req, res) => {

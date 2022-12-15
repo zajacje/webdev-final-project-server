@@ -79,7 +79,7 @@ const UsersController = (app) => {
     app.get('/users/:uid', findUserById)
     app.post('/users', createUser)
     app.put('/users/:uid', updateUser)
-    app.delete('/users/:uid', deleteUser)
+    app.delete('/users/:uid', deleteUser) // FOR DEBUGGING ONLY
 
     app.post('/register', register)
     app.post('/login', login)

@@ -7,6 +7,7 @@ import UsersController from './users/users-controller.js';
 import LikesController from './likes/likes-controller.js';
 import PlansController from './plans/plans-controller.js';
 import MembershipsController from './memberships/memberships-controller.js';
+import PostsController from './posts/posts-controller.js';
 
 const CONNECTION_STRING = process.env.DB_CONNECTION_STRING
  || 'mongodb://localhost:27017/wecook'
@@ -30,4 +31,5 @@ UsersController(app);
 LikesController(app);
 PlansController(app);
 MembershipsController(app);
+PostsController(app);
 app.listen(4000);

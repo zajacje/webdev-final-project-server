@@ -1,7 +1,7 @@
 import likesModel from "./likes-model.js";
 
 export const userLikesRecipe = async (uid, rid, recipeName) => {
-    return await likesModel.create({user: uid, recipeId: rid, name: recipeName})
+    return await likesModel.create({user: uid, recipeId: rid, recipeName: recipeName})
 }
 export const userUnlikesRecipe = async(uid, rid) => {
     return await likesModel.deleteOne({user: uid, recipeId: rid})
@@ -12,7 +12,7 @@ export const findRecipesLikedByUser = async(uid) => {
         .exec()
 }
 export const findUsersThatLikeRecipe = async(rid) => {
-    return await likesModel.find({recipeId: rid}, {recipeId: false, name: false})
+    return await likesModel.find({recipeId: rid}, {recipeId: false, recipeName: false})
         .populate('user', 'username')
         .exec()
 }

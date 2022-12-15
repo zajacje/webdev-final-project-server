@@ -1,5 +1,6 @@
 import * as plansDao from "./plans-dao.js";
 import * as membershipsDao from "../memberships/memberships-dao.js";
+import * as postsDao from '../posts/posts-dao.js'
 
 const PlansController = (app) => {
 
@@ -19,7 +20,8 @@ const PlansController = (app) => {
         const {pid} = req.params;
         const planStatus = await plansDao.deletePlan(pid);
         const membershipsStatus = await membershipsDao.deleteAllMembershipsForPlan(pid);
-        res.json({planStatus: planStatus, membershipsStatus: membershipsStatus});
+        const postsStatus = await postsDao.deleteAllPostsForPlan(pid);
+        res.json({planStatus: planStatus, membershipsStatus: membershipsStatus, postsStatus: postsStatus});
     }
     const updatePlan = async (req, res) => {
         const {pid} = req.params;

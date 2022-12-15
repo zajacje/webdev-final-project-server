@@ -28,8 +28,8 @@ const MembershipsController = (app) => {
 		res.json(updatedMembership);
     }
     const findAllMemberships = async (req, res) => {
-        const memberhsips = await membershipsDao.findAllMemberships()
-        res.json(memberhsips)
+        const memberships = await membershipsDao.findAllMemberships()
+        res.json(memberships)
     }
     const findPlansForUser = async (req, res) => {
         const {uid} = req.params;

@@ -11,7 +11,7 @@ export const deletePlan = async (pid) =>
 
 export const updatePlan = async (pid, planUpdates) =>
     await plansModel.findOneAndUpdate({_id: pid},
-        {$set: planUpdates})
+        {$set: planUpdates}, {new: true})
 
 export const findPlanById = (pid) =>
     plansModel.findById(pid)
