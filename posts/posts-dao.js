@@ -37,3 +37,21 @@ export const findPostsForPlan = async (pid) => {
         .populate('user')
         .exec()
 }
+
+export const voteForPost = async (postId, uid, vote) => {
+    if (vote === 'removed') {
+        return await postsModel.findOneAndUpdate({_id: postId},
+            {
+                $unset: {
+                    [`votes.${uid}`]: true,
+                  }
+              }, {new: true});
+    } else {
+        return await postsModel.findOneAndUpdate({_id: postId},
+            {
+                $set: {
+                  [`votes.${uid}`]: vote === 'upvoted',
+                }
+              }, {new: true});
+    } 
+}

@@ -8,6 +8,7 @@ const postsSchema = mongoose.Schema({
     img: {type: String, required: true},
     date: {type: Date, required: true},
     ingredients: {type: Map, of: Boolean, default: {}},
-    readyInMinutes: Number
+    readyInMinutes: Number,
+    votes: {type: Map, of: Boolean, default: {}}
 }, {collection: 'posts'})
 export default postsSchema;

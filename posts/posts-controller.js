@@ -50,10 +50,19 @@ const PostsController = (app) => {
         const users = await postsDao.findPostsForPlan(pid)
         res.json(users)
     }
+    const voteForPost = async (req, res) => {
+        const uid = req.session['currentUser']._id
+        const {postId} = req.params;
+		const {vote} = req.body;
+
+        const updatedPost = await postsDao.voteForPost(postId, uid, vote);
+		res.json(updatedPost);
+    }
 
     app.post('/plans/:pid/posts', createPost)
     app.delete('/plans/:pid/posts/:postId', deletePost)
     app.put('/plans/:pid/posts/:postId', updatePost)
+    app.put('/plans/:pid/posts/:postId/votes', voteForPost)
     app.put('/plans/:pid/posts/:postId/ingredients', updateIngredient)
     app.delete('/plans/:pid/posts', deleteAllPostsForPlan)
     app.get('/posts', findAllPosts)
