@@ -31,13 +31,13 @@ const PlansController = (app) => {
 
   const deletePlan = async (req, res) => {
     const { pid } = req.params;
-    const planStatus = await plansDao.deletePlan(pid);
+    const deletedPlan = await plansDao.deletePlan(pid);
     const membershipsStatus = await membershipsDao.deleteAllMembershipsForPlan(
       pid
     );
     const postsStatus = await postsDao.deleteAllPostsForPlan(pid);
     res.json({
-      planStatus: planStatus,
+      deletedPlan: deletedPlan,
       membershipsStatus: membershipsStatus,
       postsStatus: postsStatus,
     });

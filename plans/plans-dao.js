@@ -6,7 +6,7 @@ export const createPlan = async (planName) =>
 export const findAllPlans = async () => await plansModel.find();
 
 export const deletePlan = async (pid) =>
-  await plansModel.deleteOne({ _id: pid });
+  await plansModel.findOneAndDelete({ _id: pid });
 
 export const updatePlan = async (pid, planUpdates) =>
   await plansModel.findOneAndUpdate(
