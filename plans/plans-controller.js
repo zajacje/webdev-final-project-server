@@ -14,7 +14,7 @@ const PlansController = (app) => {
       newPlan._id,
       "owner"
     );
-    res.json({ plan: newPlan, memberhsip: newMembership });
+    res.json({ plan: newPlan, membership: newMembership });
   };
 
   const findAllPlans = async (req, res) => {
