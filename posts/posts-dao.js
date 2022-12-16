@@ -27,7 +27,9 @@ export const updateIngredient = async (postId, ingredient, owned) =>
       },
     },
     { new: true }
-  );
+  )
+  .populate("user")
+  .exec();;
 
 export const findPostsForUser = async (uid) => {
   return await postsModel
