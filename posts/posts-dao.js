@@ -5,7 +5,7 @@ export const createPost = async (post) => await postsModel.create(post);
 export const findAllPosts = async () => await postsModel.find();
 
 export const deletePost = async (postId) =>
-  await postsModel.deleteOne({ _id: postId });
+  await postsModel.findOneAndDelete({ _id: postId });
 
 export const deleteAllPostsForPlan = async (pid) => {
   await postsModel.deleteMany({ plan: pid });

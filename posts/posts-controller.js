@@ -18,8 +18,8 @@ const PostsController = (app) => {
   const deletePost = async (req, res) => {
     const { postId } = req.params;
 
-    const status = await postsDao.deletePost(postId);
-    res.send(status);
+    const deletedPost = await postsDao.deletePost(postId);
+    res.json(deletedPost);
   };
 
   const deleteAllPostsForPlan = async (req, res) => {
