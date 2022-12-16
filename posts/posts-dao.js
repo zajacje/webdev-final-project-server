@@ -23,16 +23,17 @@ export const updateIngredient = async (postId, ingredient, owned) =>
     { _id: postId },
     {
       $set: {
-        [`ingredients.${ingredient}`]: owned,
+        [`ingredients.${ingredient}.owned`]: owned,
       },
     },
     { new: true }
   );
-  
+
 export const findPostsForUser = async (uid) => {
   return await postsModel
     .find({ user: uid }, { user: false })
     .populate("plan")
+    .sort({dateCreated:"descending"})
     .exec();
 };
 
@@ -40,6 +41,7 @@ export const findPostsForPlan = async (pid) => {
   return await postsModel
     .find({ plan: pid }, { plan: false })
     .populate("user")
+    .sort({date:"ascending"})
     .exec();
 };
 
