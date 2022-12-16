@@ -5,7 +5,7 @@ export const createMembership = async (uid, pid, newRole) => {
 };
 
 export const deleteMembership = async (uid, pid) => {
-  return await membershipsModel.deleteOne({ user: uid, plan: pid });
+  return await membershipsModel.findOneAndDelete({ user: uid, plan: pid });
 };
 
 export const deleteAllMembershipsForPlan = async (pid) => {

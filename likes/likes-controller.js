@@ -15,8 +15,8 @@ const LikesController = (app) => {
     const uid = req.session["currentUser"]._id;
     const { rid } = req.params;
 
-    const status = await likesDao.userUnlikesRecipe(uid, rid);
-    res.send(status);
+    const deletedRecipe = await likesDao.userUnlikesRecipe(uid, rid);
+    res.json(deletedRecipe);
   };
   
   const findAllLikes = async (req, res) => {

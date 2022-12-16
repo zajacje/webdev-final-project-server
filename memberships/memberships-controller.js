@@ -13,8 +13,8 @@ const MembershipsController = (app) => {
   const deleteMembership = async (req, res) => {
     const { uid, pid } = req.params;
 
-    const status = await membershipsDao.deleteMembership(uid, pid);
-    res.send(status);
+    const deletedMembership = await membershipsDao.deleteMembership(uid, pid);
+    res.json(deletedMembership);
   };
 
   const deleteAllMembershipsForPlan = async (req, res) => {

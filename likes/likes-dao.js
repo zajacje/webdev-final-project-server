@@ -9,7 +9,7 @@ export const userLikesRecipe = async (uid, rid, recipeName) => {
 };
 
 export const userUnlikesRecipe = async (uid, rid) => {
-  return await likesModel.deleteOne({ user: uid, recipeId: rid });
+  return await likesModel.findOneAndDelete({ user: uid, recipeId: rid });
 };
 
 export const findRecipesLikedByUser = async (uid) => {
