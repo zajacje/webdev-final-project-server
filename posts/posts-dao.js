@@ -29,7 +29,7 @@ export const updateIngredient = async (postId, ingredient, owned) =>
     { new: true }
   )
   .populate("user")
-  .exec();;
+  .exec();
 
 export const findPostsForUser = async (uid) => {
   return await postsModel
@@ -57,7 +57,9 @@ export const voteForPost = async (postId, uid, vote) => {
         },
       },
       { new: true }
-    );
+    )
+    .populate("user")
+    .exec();
   } else {
     return await postsModel.findOneAndUpdate(
       { _id: postId },
@@ -67,6 +69,8 @@ export const voteForPost = async (postId, uid, vote) => {
         },
       },
       { new: true }
-    );
+    )
+    .populate("user")
+    .exec();
   }
 };
