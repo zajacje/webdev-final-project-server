@@ -25,4 +25,5 @@ export const findUsersThatLikeRecipe = async (rid) => {
     .exec();
 };
 
-export const findAllLikes = async () => await likesModel.find().sort({_id: "descending"});
+export const findAllLikes = async () => await likesModel.find().sort({_id: "descending"}).populate("user")
+.exec();
