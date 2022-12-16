@@ -22,6 +22,13 @@ const PlansController = (app) => {
     res.json(plans);
   };
 
+  const findPlanById = async (req, res) => {
+    const {pid} = req.params;
+    const plan = await plansDao.findPlanById(pid);
+    res.json(plan);
+  };
+
+
   const deletePlan = async (req, res) => {
     const { pid } = req.params;
     const planStatus = await plansDao.deletePlan(pid);
@@ -45,9 +52,10 @@ const PlansController = (app) => {
 
   app.post("/plans", userCreatesPlan);
   app.get("/plans", findAllPlans);
+  app.get("/plans/:pid", findPlanById);
   app.delete("/plans/:pid", deletePlan);
   app.put("/plans/:pid", updatePlan);
-  
+
 };
 
 export default PlansController;
