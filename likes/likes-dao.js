@@ -25,4 +25,4 @@ export const findUsersThatLikeRecipe = async (rid) => {
     .exec();
 };
 
-export const findAllLikes = async () => await likesModel.find();
+export const findAllLikes = async () => await likesModel.find().sort({_id: "descending"});
