@@ -1,9 +1,10 @@
 import membershipsModel from "./memberships-model.js";
 
 export const createMembership = async (uid, pid, newRole) => {
-  return await membershipsModel.create({ user: uid, plan: pid, role: newRole })
+  let newPlan = await membershipsModel.create({ user: uid, plan: pid, role: newRole });
+  return await membershipsModel.findOne({_id: newPlan._id})
   .populate("user")
-    .exec();
+  .exec();
 };
 
 export const deleteMembership = async (uid, pid) => {
