@@ -25,7 +25,7 @@ const LikesController = (app) => {
   };
 
   const findRecipesLikedByUser = async (req, res) => {
-    const uid = req.session["currentUser"]._id;
+    const { uid } = req.params;
 
     const recipes = await likesDao.findRecipesLikedByUser(uid);
     res.json(recipes);
